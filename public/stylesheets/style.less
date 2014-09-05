@@ -17,7 +17,6 @@ body
   background-image: url(../img/desert.png);
   background-size: cover;
   background-position: center;
-  height: 100vh;
 }
 .block
 {
@@ -25,18 +24,31 @@ body
 }
 .inner
 {
-  
+  position: relative;
+  z-index: -1;
+  margin: 0 auto;
+
+  padding: 1rem;
 }
 .outer
 {
   position: relative;
+  width: 100%;
+  min-height: 350px;
+  height: 100vh;
+}
+
+.card
+{
+  position: relative;
   width: 300px;
-  height: 350px;
+  margin: 0 auto;
 }
 
 .logo
 {
   position: absolute;
+  //top: 0rem;
   z-index: -1;
   width: 300px;
   height: 350px;
@@ -54,6 +66,7 @@ body
   position: relative;
   font-size: 1.2em;
   text-align: right;
+  margin-right: 1rem;
 }
 p
 {
@@ -61,11 +74,10 @@ p
 }
 
 
-
 .table-column-left
 {
   display: inline-block;
-  width: 65%;
+  width: 160px;
   text-align: right;
 
 }
