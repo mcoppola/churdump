@@ -1,76 +1,30 @@
-<!doctype html>
 <html>
     <head>
-        <title>{{title}}</title>
-        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-        <script src="js/envii.min.js"></script>
+        <title>Churdumplin the Healer</title>
+        <link href='http://fonts.googleapis.com/css?family=Sacramento|Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="stylesheets/style.css">
     </head>
-    <script>
-    utils.setCanvas(window);
-    window.onload = function () {
 
-        // ------------------ INITS ---------------------------------------------------------- //
-
-        var canvas = document.getElementById('canvas');
-        var top = document.getElementById('title');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        mouse = utils.captureMouse(canvas);
-
-        envi = new Envi(canvas, window);
-
-
-        // --------------- MAKE ASSETS ------------------------------------------------------- //
-        
-        var box = new Asset(envi.models.container, 0, 0, 0, 1);
-        var sunA = new Asset(envi.models.sun, canvas.width/2 - 62, canvas.height/2 - 300, 200, 20);
-        var sunB = new Asset(envi.models.sun, canvas.width/2 - 62, canvas.height/2 + 200, 200, 20);
-        var sunC = new Asset(envi.models.sun, canvas.width/2 - 360, canvas.height/2 - 62, 200, 20);
-        var sunD = new Asset(envi.models.sun, canvas.width/2 + 250, canvas.height/2 - 62, 200, 20);
-
-        top.addEventListener('mousedown', function() {
-            sunA.modelAttributes[0] = new explode_infinite(10, 300*Math.random(), 1);
-
-            top.addEventListener('mousedown', function() {
-                sunB.modelAttributes[0] = new explode_infinite(10, 300*Math.random(), 1);
-            }, false);
-        }, false);
-        
-
-        // --------------- LOAD ASSETS ------------------------------------------------------- //
-
-        var assets = [];
-        
-        assets[0] = box;
-        assets[1] = sunA;
-        assets[2] = sunB;
-        assets[3] = sunC;
-        assets[4] = sunD;
-
-
-        // --------------- MAKE SCENE ------------------------------------------------------- //
-
-        scene = new Scene(envi, assets);
-      
-        // --------------  DRAW FRAME ------------------------------------------------------- /
-
-        utils.getAnimationFrame();
-      (function drawFrame () {
-        window.requestAnimationFrame(drawFrame, canvas);
-
-        scene.play();
-      }());
-    };
-    </script>
     <body>
-        <canvas id="canvas" width="2800" height="1600"></canvas>
-          <div id="top"class="fixed-top">
-            <div id="title" class="title">musey <font face="verdana" color="#FFCC00">| </font> <font face="verdana" color="pink">land </font></div>
-            <form action="login" id="login">
-                <input type="text" name="username" placeholder="username">
-                <input type="password" name="password" placeholder="password">
-                <input type="submit" name="submit" value="Log In">
-            </form>
-          </div>
+        <div class="block">
+            <div class="inner">
+                <img class="logo" src="img/churdump.jpg" alt="">
+                <div class="outer">
+                    <h3 class="header">Churdumplin the Healer</h3>
+                    <p class="sub-header">Visiting Hours</p>
+                    <div class="table-container">
+                        <div class="table-column-left">M</div><div class="table-column-right">5pm - 7pm</div>
+                        <div class="table-column-left">T</div><div class="table-column-right">5pm - 7pm</div>
+                        <div class="table-column-left">W</div><div class="table-column-right">5pm - 7pm</div>
+                        <div class="table-column-left">T</div><div class="table-column-right">5pm - 7pm</div>
+                        <div class="table-column-left">F</div><div class="table-column-right">5pm - 7pm</div>
+                    </div>  
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
     </body>
 </html>

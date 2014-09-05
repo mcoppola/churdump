@@ -11,6 +11,6 @@ require(__dirname + '/routes')(app);
 
 // Start the server
 http.createServer(app).listen(process.env.PORT || opts.port, function () {
-    console.log("~ MUSEY ~ LAND ~ : server listening on port %d in %s mode",
+    console.log("~ CHRDUMPLIN ~ : server listening on port %d in %s mode",
                 opts.port, app.settings.env);
 });
