@@ -1,49 +1,34 @@
-var Spreadsheet = require('edit-google-spreadsheet');
-var async = require('async');
+var async = require('async'),
+	refresh = require(__dirname +'/refresh.js'),
+	monk = require('monk'),
+    db = monk('localhost:27017/churdump');
 
 module.exports = function (app) {
     app.get('/', index);
+    app.get('/refresh', refresh);
 };
 
-var getSpreadsheetData = function(callback) {
 
-	Spreadsheet.load({
-	    debug: true,
-	    spreadsheetId: '174-MA3rEijKsXfU5sifHrZ59MqEpfjmcQ6_aIjK9G3s',
-	    worksheetId: 'od6',
+var getHoursFromDb = function(callback) {
 
-	    oauth : {
-	        email: '254154442815-4tk24uc0n66h8jn58pq9q1kgrnoc0itj@developer.gserviceaccount.com',
-	        keyFile: 'key-file.pem'
-	    }
+	var collection = db.get('hours');
 
-	}, function sheetReady(err, spreadsheet) {
+    // Submit to the DB
+    collection.find({name: 'hours'}, function (err, results) {
+    	if (err) {
+    		callback(err, {});
+    	}
+    	callback(null, results[0]);
+    });
 
-	    if (err) {
-	        callback(err);
-	    }
+    
 
-	    spreadsheet.receive(function(err, rows, info) {
-	        if (err) {
-	            throw err;
-	        }
-
-	        // format the data
-	        var data = {};
-	        console.log(rows['2']['2']);
-	        data.monday = rows['2']['2'];
-
-	        callback(null, data);
-	    });
-
-	});
-	
 }
 
 var index = function (req, res) {
 	// Lets get our hours and return it to the template
-	async.series([ getSpreadsheetData ], function(err, results) {
-			res.render('index', { data: results });
+	async.series([ getHoursFromDb ], function(err, results) {
+		res.render('index', { data: results[0] });
 	});
     
 };

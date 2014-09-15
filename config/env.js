@@ -1,6 +1,8 @@
 var util = require(__dirname + '/../libs/util.js'),
     path = require('path'),
-    mustache = require('mu2');
+    mustache = require('mu2'),
+    monk = require('monk'),
+    db = monk('localhost:27017/churdump');
 
 module.exports = function (express, app) {
 
@@ -32,6 +34,12 @@ module.exports = function (express, app) {
         // Make sure build folders exist
         app.use(require('less-middleware')(path.join(__dirname, '../public')));
         app.use(express.static(path.join(__dirname, '../public')));
+
+        // Make our db accessible to our router
+        app.use(function(req,res,next){
+            req.db = db;
+            next();
+        });
 
         app.use(app.router);
     });
