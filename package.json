@@ -11,8 +11,8 @@
     "optimist": ">= 0.0.1",
     "edit-google-spreadsheet": "*",
     "async": "*",
-    "mongodb": "*",
-    "monk": "*"
+    "mongodb": "x",
+    "monk": "x"
   },
   "engines": {
     "node": "0.10.x"
