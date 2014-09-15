@@ -9,20 +9,21 @@
     <body>
         <div class="block">
             <div class="inner">
-                <div class="card">
-                    
+                <div class="card">                    
                     <img class="logo" src="img/churdump.jpg" alt="">
                     <div class="outer">
                         <h3 class="header">Churdumplin the Healer</h3>
-                        <p class="sub-header">Visiting Hours 9.8.14</p>
+                        <p class="sub-header">Visiting Hours {{data.weekOf }}</p>
                         <div class="table-container">
-                            <div class="table-column-left">M</div><div class="table-column-right">12 - 8pm</div>
-                            <div class="table-column-left">T</div><div class="table-column-right">6pm - 8pm</div>
-                            <div class="table-column-left">W</div><div class="table-column-right">1:30pm - 6pm</div>
-                            <div class="table-column-left">T</div><div class="table-column-right">4:30pm - 7pm</div>
-                            <div class="table-column-left">F</div><div class="table-column-right">1pm - 3pm</div>
-                            <div class="table-column-left">S</div><div class="table-column-right">1:30pm - 3:30</div>
-                            <div class="table-column-left">S</div><div class="table-column-right">10am - 6pm</div>
+
+                            <div class="table-column-left">M</div><div class="table-column-right">{{ data.monday }}</div>
+                            <div class="table-column-left">T</div><div class="table-column-right">{{ data.tuesday }}</div>
+                            <div class="table-column-left">W</div><div class="table-column-right">{{ data.wednesday }}</div>
+                            <div class="table-column-left">T</div><div class="table-column-right">{{ data.thursday }}</div>
+                            <div class="table-column-left">F</div><div class="table-column-right">{{ data.friday }}</div>
+                            <div class="table-column-left">S</div><div class="table-column-right">{{ data.saturday }}</div>
+                            <div class="table-column-left">S</div><div class="table-column-right">{{ data.sunday }}</div>
+
                         </div>  
                         
                     </div>
