@@ -1,7 +1,7 @@
 var async = require('async'),
 	refresh = require(__dirname +'/refresh.js'),
 	monk = require('monk'),
-    db = monk('localhost:27017/churdump');
+    db = monk('mongodb://heroku_app29188108:go8xmk64@ds035260.mongolab.com:35260/heroku_app29188108');
 
 module.exports = function (app) {
     app.get('/', index);
