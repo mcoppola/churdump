@@ -1,5 +1,8 @@
-var require('newrelic'),
-	express = require('express'),
+// New Relic monitoring    
+require('newrelic');
+
+// Dependencies
+var express = require('express'),
     http = require('http'),
     app = express(),
     opts = require(__dirname + '/config/opts.js');
