@@ -13,7 +13,7 @@ var getSpreadsheetData = function(callback) {
 
 	    oauth : {
 	        email: '254154442815-4tk24uc0n66h8jn58pq9q1kgrnoc0itj@developer.gserviceaccount.com',
-	        keyFile: 'key-file.pem'
+	        keyFile: 'auth/key-file.pem'
 	    }
 
 	}, function sheetReady(err, spreadsheet) {
