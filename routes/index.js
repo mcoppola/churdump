@@ -1,7 +1,7 @@
 var async = require('async'),
 	refresh = require(__dirname +'/refresh.js'),
 	monk = require('monk'),
-    db = monk('mongodb://heroku_app29188108:pk8moq7fsn9r02c2al0l25iahp@ds035260.mongolab.com:35260/heroku_app29188108');
+    db = monk('mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/');
 
 module.exports = function (app) {
     app.get('/', index);

@@ -3,6 +3,10 @@ var express = require('express'),
     app = express(),
     opts = require(__dirname + '/config/opts.js');
 
+// Our openshift variables
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+
 // Load express configuration
 require(__dirname + '/config/env.js')(express, app);
 
