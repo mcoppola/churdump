@@ -1,8 +1,8 @@
 {
-  "name": "musey-land",
+  "name": "churdump",
   "version": "0.0.1",
   "private": true,
-  "repository": "https://github.com/mcoppola/musey-land.git",
+  "repository": "https://github.com/mcoppola/churdump.git",
   "dependencies": {
     "edit-google-spreadsheet": "^0.2.10",
     "express": "3.4.8",
@@ -16,5 +16,9 @@
   },
   "engines": {
     "node": "0.10.x"
-  }
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "main": "app.js
 }
