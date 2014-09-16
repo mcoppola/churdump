@@ -1,4 +1,5 @@
-var express = require('express'),
+var require('newrelic'),
+	express = require('express'),
     http = require('http'),
     app = express(),
     opts = require(__dirname + '/config/opts.js');
